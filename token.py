@@ -1,6 +1,6 @@
 import os,sys
 msg_table=['func','main','if','while',
-'else','break','num','string','bool','(',')',
+'else','num','string','bool','(',')',
 ';',',','{','}','[',']','=','+','-','*'
 ,'/','%','&','|','>','<','==','>=','<=','"','"','id']
 def read_token(file):
@@ -92,6 +92,7 @@ def deal_words(words,msg_line,msg_row):
         count+=1
     if (count%2)!=0 and last_word=='"':
         last_word=''
+        # 表示字符常量
         print('id_string'+':'+words+':'+str(msg_line)+':'+str(msg_row))
         return
     
@@ -102,13 +103,14 @@ def deal_words(words,msg_line,msg_row):
                 print('id'+':'+words+':'+str(msg_line)+':'+str(msg_row))
                 break
             elif check_num(words):
+                # 表示常数变量
                 print('id_num'+':'+words+':'+str(msg_line)+':'+str(msg_row))
                 break
             else:
                 error(words,msg_line,msg_row)
                 break
         if words==t:
-            if i<9:
+            if i<8:
                 
                 print(words+':'+words+':'+str(msg_line)+':'+str(msg_row))
             elif i<length-1:
