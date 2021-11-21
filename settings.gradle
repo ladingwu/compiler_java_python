@@ -1,0 +1,3 @@
+rootProject.name = "CompileApplication"
+include ':app'
+include ':compilelib'
